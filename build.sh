@@ -3,7 +3,7 @@ sudo apt-get update
 sudo apt-get upgrade -y
 
 #Standard apps
-sudo apt-get install -y curl openssh-server vim build-essential linux-headers-server git tmux zip unzip vim fail2ban
+sudo apt-get install -y curl openssh-server vim build-essential linux-headers-server git tmux zip unzip vim fail2ban htop
 
 #Git settings
 git config --global user.name "Jacob Cody Wimer"
