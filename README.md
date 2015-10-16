@@ -27,3 +27,8 @@ Ubuntu virtual machine template build:
 After template spins back up:
 
 <tt>bash regen-ssh.sh</tt>
+
+
+AFTER TEMPLATE INSTALL
+
+*Import gpg key
