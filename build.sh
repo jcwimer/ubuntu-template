@@ -3,7 +3,9 @@ sudo apt-get update
 sudo apt-get upgrade -y
 
 #Standard apps
-sudo apt-get install -y curl openssh-server vim build-essential linux-headers-server git tmux zip unzip vim fail2ban htop
+sudo apt-get install -y curl openssh-server vim build-essential linux-headers-server git tmux zip unzip vim fail2ban htop ntp
+
+sudo timedatectl set-timezone America/New_York
 
 #Git settings
 git config --global user.name "Jacob Cody Wimer"
