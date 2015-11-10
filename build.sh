@@ -3,7 +3,7 @@ sudo apt-get update
 sudo apt-get upgrade -y
 
 #Standard apps
-sudo apt-get install -y curl openssh-server vim build-essential linux-headers-server git tmux zip unzip vim fail2ban htop ntp apache2-utils mysql-client-core-5.5 siege dstat htop
+sudo apt-get install -y curl openssh-server vim build-essential linux-headers-server git tmux zip unzip vim fail2ban htop ntp apache2-utils mysql-client-core-5.5 siege dstat htop sysstat
 
 sudo timedatectl set-timezone America/New_York
 
