@@ -19,10 +19,11 @@ fi
 sudo chown root:root /etc/network/interfaces
 sudo chmod 644 /etc/network/interfaces
 
-
-sudo cat id_rsa.pub >> /root/.ssh/authorized_keys
-cat id_rsa.pub >> ~/.ssh/authorized_keys
-
 sudo bash regen-ssh.sh
+
+sudo mkdir /root/.ssh
+sudo cat id_rsa.pub >> /root/.ssh/authorized_keys
+mkdir ~/.ssh
+cat id_rsa.pub >> ~/.ssh/authorized_keys
 
 sudo reboot
