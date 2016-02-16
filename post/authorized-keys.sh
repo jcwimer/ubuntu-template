@@ -1,5 +1,15 @@
-sudo mkdir /root/.ssh
-sudo cat id_rsa.pub >> /root/.ssh/authorized_keys
-mkdir ~/.ssh
-cat id_rsa.pub >> ~/.ssh/authorized_keys
+cat id_rsa.pub >> authorized_keys
 
+sudo mkdir /root/.ssh
+mkdir ~/.ssh
+
+sudo cp authorized_keys /root/.ssh/
+cp authorized_keys ~/.ssh/
+
+sudo chown root:root /root/.ssh/authorized_keys
+sudo chmod 600 /root/.ssh/authorized_keys
+
+chown $USER:$USER ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+
+rm authorized_keys
