@@ -26,14 +26,14 @@ Ubuntu virtual machine template build:
 
 After template spins back up:
 
-<tt>bash regen-ssh.sh</tt>
+<tt>bash post/regen-ssh.sh</tt>
 
 
 Home env:
 
-Need to make sure your current directory is ubuntu-template
+Need to make sure your current directory is ubuntu-template/post
 
-<tt>cd ubuntu-template</tt>
+<tt>cd ubuntu-template/post</tt>
 
 Run without root (will ask for sudo password)
 
