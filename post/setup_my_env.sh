@@ -21,9 +21,6 @@ sudo chmod 644 /etc/network/interfaces
 
 sudo bash regen-ssh.sh
 
-sudo mkdir /root/.ssh
-sudo cat id_rsa.pub >> /root/.ssh/authorized_keys
-mkdir ~/.ssh
-cat id_rsa.pub >> ~/.ssh/authorized_keys
+bash authorized-keys.sh
 
 sudo reboot
