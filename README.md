@@ -29,6 +29,16 @@ After template spins back up:
 <tt>bash regen-ssh.sh</tt>
 
 
+Home env:
+
+Need to make sure your current directory is ubuntu-template
+
+<tt>cd ubuntu-template</tt>
+
+Run without root (will ask for sudo password)
+
+<tt>bash setup_my_env.sh hostname ipaddress.or.dhcp</tt>
+
 AFTER TEMPLATE INSTALL
 
 *Import gpg key
