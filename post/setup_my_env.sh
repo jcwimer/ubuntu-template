@@ -13,11 +13,11 @@ if [ $2 == "dhcp" ]; then
   sudo cp dhcp.config /etc/network/interfaces
 else
   sudo cp static.config /etc/network/interfaces
-  sudo sed -i s/0.0.0.0/$2/g /etc/network/interfaces
+  sudo sed -i s/0.0.0.0/$2/g /etc/network/interfaces.d/eth0.cfg
 fi
 
-sudo chown root:root /etc/network/interfaces
-sudo chmod 644 /etc/network/interfaces
+sudo chown root:root /etc/network/interfaces.d -R
+sudo chmod -R 644 /etc/network/interfaces.d/*.cfg
 
 sudo bash regen-ssh.sh
 
