@@ -18,6 +18,8 @@ Ubuntu virtual machine template build:
 
 <tt>bash build.sh</tt> (without root)
 
+<tt>bash non-vagrant-extras.sh</tt> (without root)
+
 <tt>sudo reboot</tt>
 
 <tt>bash template-clean.sh</tt>
