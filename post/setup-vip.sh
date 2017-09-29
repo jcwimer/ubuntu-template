@@ -1,14 +1,16 @@
 #!/bin/bash
 
-#echo "source /etc/network/interfaces.d/*" >> /etc/network/interfaces
+if (($# < 1)); then
+  echo "Parameters: [ip-address]"
+  exit 5
+fi
 
-cat > /etc/network/interfaces.d/eth01.cfg <<EOF
-auto eth0:1
-iface eth0:1 inet static
-address ${1}
-netmask 255.255.255.0
-gateway 10.0.0.1
-dns-nameservers 10.0.0.204
-EOF
+sudo cp static.cfg /etc/network/interfaces.d/eth01.cfg
+sudo sed -i s/0.0.0.0/$1/g /etc/network/interfaces.d/eth01.cfg
+sudo sed -i s/eth0/eth0\:1/g /etc/network/interfaces.d/eth01.cfg
+
+sudo chown root:root /etc/network/interfaces.d -R
+sudo chmod -R 644 /etc/network/interfaces.d/
+
 
 ifup eth0:1

@@ -20,7 +20,13 @@ if [[ -z $(sudo cat /etc/fstab | grep "${NFS_SERVER}:/volumeUSB1/usbshare/raw-fi
 fi
 
 #Move config files
-sudo cp docker-daemon.json /etc/docker/daemon.json
-sudo cp sudoers /etc/sudoers
+sudo cp configs/docker-daemon.json /etc/docker/daemon.json
+sudo cp configs/sudoers /etc/sudoers
+
+#Setup networking with interfaces.d cfg files
+sudo cp configs/interfaces /etc/network/interfaces
+sudo cp configs/eth0.cfg /etc/network/interfaces.d/eth0.cfg
+sudo chown root:root /etc/network/interfaces.d -R
+sudo chmod -R 644 /etc/network/interfaces.d/
 
 echo Done

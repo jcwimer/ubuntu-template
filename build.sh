@@ -5,7 +5,8 @@ COMPOSE_VERSION='1.14.0'
 DOCKER_VERSION='17.06.0'
 NFS_SERVER='10.0.0.150'
 
-mkdir /data
+sudo mkdir /data
+sudo mkdir /etc/network/interfaces.d
 
 #Update
 sudo apt-get update -qq
@@ -62,7 +63,7 @@ wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 #sudo cp update.sh /etc/cron.daily/update.sh
 
 #VIM Setup
-cp .vimrc ~/
+cp configs/.vimrc ~/
 #Install pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 	curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim

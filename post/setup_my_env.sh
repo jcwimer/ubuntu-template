@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if (($# < 1)); then
+if (($# < 2)); then
   echo "Parameters: [hostname] [ip-address or dhcp]"
   exit 5
 fi
@@ -10,9 +10,9 @@ sudo sed -i s/ubuntu/$1/g /etc/hostname
 sudo sed -i s/ubuntu/$1/g /etc/hosts
 
 if [ $2 == "dhcp" ]; then
-  sudo cp dhcp.config /etc/network/interfaces.d/eth0.cfg
+  sudo cp dhcp.cfg /etc/network/interfaces.d/eth0.cfg
 else
-  sudo cp static.config /etc/network/interfaces.d/eth0.cfg
+  sudo cp static.cfg /etc/network/interfaces.d/eth0.cfg
   sudo sed -i s/0.0.0.0/$2/g /etc/network/interfaces.d/eth0.cfg
 fi
 
