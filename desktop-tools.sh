@@ -1,6 +1,10 @@
+#!/bin/bash
+
 sudo add-apt-repository ppa:webupd8team/sublime-text-3 -y
-sudo apt-get update
-sudo apt-get install sublime-text-installer -y
+sudo apt-get update -qq
+sudo apt-get install -y -qq \
+	sublime-text-installer \
+	xrdp
 wget https://download.jetbrains.com/idea/ideaIC-15.0.2.tar.gz
 tar -zxvf ideaIC-15.0.2.tar.gz
 rm ideaIC-15.0.2.tar.gz

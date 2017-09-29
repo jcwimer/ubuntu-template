@@ -1,9 +1,39 @@
+#!/bin/bash
+
+#Static variables
+COMPOSE_VERSION='1.14.0'
+DOCKER_VERSION='17.06.0'
+NFS_SERVER='10.0.0.150'
+
+mkdir /data
+
 #Update
-sudo apt-get update
-sudo apt-get upgrade -y
+sudo apt-get update -qq
+sudo apt-get dist-upgrade -y -qq
 
 #Standard apps
-sudo apt-get install -y curl openssh-server vim build-essential linux-headers-server git tmux zip unzip vim fail2ban htop ntp apache2-utils mysql-client-core-5.5 siege dstat htop sysstat
+sudo apt-get install -y \
+	curl \
+	openssh-server \
+	vim \
+	build-essential \
+	linux-headers-server \
+	git \
+	tmux \
+	zip \
+	unzip \
+	vim \
+	fail2ban \
+	htop \
+	ntp \
+	apache2-utils \
+	mysql-client-core-5.5 \
+	siege \
+	dstat \
+	htop \
+	sysstat \
+	nfs-common \
+	dnsutils
 
 sudo timedatectl set-timezone America/New_York
 
@@ -11,25 +41,37 @@ sudo timedatectl set-timezone America/New_York
 git config --global user.name "Jacob Cody Wimer"
 git config --global user.email "jacob.wimer@gmail.com"
 
-#Docker install
-curl -sSL https://get.docker.com/ | sh
-sudo usermod -aG docker $USER
-curl -L https://github.com/docker/compose/releases/download/1.5.0/docker-compose-`uname -s`-`uname -m` > docker-compose
-sudo mv docker-compose /usr/local/bin/
+# Install docker key and repo
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+sudo add-apt-repository -y \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+# Install docker and compose
+sudo apt-get update -qq
+sudo apt-get install -y -qq docker-ce=${DOCKER_VERSION}~ce-0~ubuntu
+sudo curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m) > /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+# Add cody to docker group
+sudo usermod -a -G docker cody
 
 #Heroku toolbelt
 wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
 #Copy update script
-sudo cp update.sh /etc/cron.daily/update.sh
+#sudo cp update.sh /etc/cron.daily/update.sh
 
-#Vim
-cp vim.zip ~
-cd ~
-unzip vim.zip
-rm vim.zip
+#VIM Setup
+cp .vimrc ~/
+#Install pathogen
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+	curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+#Install nerdtree
+git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
+
+
 
 #Finished message
-echo If this is a normal vm being used as a template, run: sudo apt-get install open-vm-tools -y, reboot, and run template-clean.sh.
+echo If this is a normal vm being used as a template, run non-vagrant-extras.sh, reboot, and run template-clean.sh.
 echo If this is a vagrant machine you are ready to go.

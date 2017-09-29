@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cat id_rsa.pub >> authorized_keys
 
 sudo mkdir /root/.ssh

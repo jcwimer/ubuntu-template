@@ -1,0 +1,3 @@
+{
+  "insecure-registries" : ["registry.wimer.local:5000","10.0.0.221:500"]
+}

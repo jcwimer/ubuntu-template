@@ -16,17 +16,11 @@ Vagrant build:
 
 Ubuntu virtual machine template build:
 
-<tt>bash build.sh</tt>
-
-<tt>sudo apt-get install open-vm-tools -y</tt>
+<tt>bash build.sh</tt> (without root)
 
 <tt>sudo reboot</tt>
 
 <tt>bash template-clean.sh</tt>
-
-After template spins back up:
-
-<tt>bash post/regen-ssh.sh</tt>
 
 
 Home env:
@@ -35,7 +29,7 @@ Need to make sure your current directory is ubuntu-template/post
 
 <tt>cd ubuntu-template/post</tt>
 
-Run without root (will ask for sudo password)
+Run without root
 
 <tt>bash setup_my_env.sh hostname ipaddress.or.dhcp</tt>
 

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #echo "source /etc/network/interfaces.d/*" >> /etc/network/interfaces
 
 cat > /etc/network/interfaces.d/eth01.cfg <<EOF
