@@ -16,14 +16,10 @@ if [[ -z $(swapon -s | grep -E "^/") ]] ; then
 	echo 'vm.vfs_cache_pressure=50' | sudo tee /etc/sysctl.conf
 fi
 
-#Mounts
-if [[ -z $(sudo cat /etc/fstab | grep "${NFS_SERVER}:/volumeUSB1/usbshare/raw-files/fileserver/shares/lab-data") ]]; then
-	echo "${NFS_SERVER}:/volumeUSB1/usbshare/raw-files/fileserver/shares/lab-data /data nfs defaults 0 0" | sudo tee /etc/fstab
-fi
-
 #Move config files
 sudo cp configs/docker-daemon.json /etc/docker/daemon.json
 sudo cp configs/sudoers /etc/sudoers
+sudo cp configs/fstab /etc/fstab
 
 #Setup networking with interfaces.d cfg files
 sudo cp configs/interfaces /etc/network/interfaces
