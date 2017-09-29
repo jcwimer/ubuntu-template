@@ -1,5 +1,7 @@
 #!/bin/bash
 
+NFS_SERVER='10.0.0.150'
+
 #Enable swap
 if [[ -z $(swapon -s | grep -E "^/") ]] ; then
 	fallocate -l 4G /swapfile 

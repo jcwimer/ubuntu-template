@@ -3,7 +3,6 @@
 #Static variables
 COMPOSE_VERSION='1.14.0'
 DOCKER_VERSION='17.06.0'
-NFS_SERVER='10.0.0.150'
 
 sudo mkdir /data
 sudo mkdir /etc/network/interfaces.d
