@@ -16,6 +16,8 @@ else
   sudo sed -i s/0.0.0.0/$2/g /etc/network/interfaces.d/eth0.cfg
 fi
 
+sudo ifdown eth0 && sudo ifup eth0
+
 sudo chown root:root /etc/network/interfaces.d -R
 sudo chmod -R 644 /etc/network/interfaces.d/
 
