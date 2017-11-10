@@ -13,4 +13,4 @@ sudo chown root:root /etc/network/interfaces.d -R
 sudo chmod -R 644 /etc/network/interfaces.d/
 
 
-ifup eth0:1
+sudo ifup eth0:1
