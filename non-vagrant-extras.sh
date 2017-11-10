@@ -4,7 +4,7 @@ NFS_SERVER='10.0.0.150'
 
 #Enable swap
 if [[ -z $(swapon -s | grep -E "^/") ]] ; then
-	fallocate -l 4G /swapfile 
+	fallocate -l 4G /swapfile
 	sudo touch /swapfile
 	sudo chown root:root /swapfile
 	sudo chmod 600 /swapfile
@@ -19,7 +19,8 @@ fi
 #Move config files
 sudo cp configs/docker-daemon.json /etc/docker/daemon.json
 sudo cp configs/sudoers /etc/sudoers
-sudo cp configs/fstab /etc/fstab
+#sudo cp configs/fstab /etc/fstab
+sudo bash -c "echo '10.0.0.150:/volumeUSB1/usbshare/raw-files/fileserver/shares/lab-data /data n    fs defaults 0 0' >> /etc/fstab"
 
 #Setup networking with interfaces.d cfg files
 sudo cp configs/interfaces /etc/network/interfaces
